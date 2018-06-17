@@ -1,9 +1,9 @@
 package slugify
 
 import (
-	"testing"
-	"reflect"
 	"fmt"
+	"reflect"
+	"testing"
 )
 
 func TestSlugify(t *testing.T) {
@@ -33,7 +33,8 @@ func TestSetReplaceSet(t *testing.T) {
 		"5 simple tips and tricks for writing unit tests in #golang", "5-simple-tips-and-tricks-for-writing-unit-tests-in-#golang",
 	}
 
-	slugify := GetWithCustomReplacer([]string{
+	slugify := GetWithCustomReplacer(nil)
+	slugify.SetReplaceSet([]string{
 		" ", "-",
 		"'", "",
 		"ı", "i",
