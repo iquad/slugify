@@ -5,6 +5,8 @@ import "strings"
 // API structs creates a wrapper
 // to be used for custom configurations
 type API struct {
+	// replaceSet is internal value to keep
+	// custom replace set
 	replaceSet []string
 }
 

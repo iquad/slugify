@@ -1,3 +1,4 @@
+// Package slugify is a Turkish/unicode compatible Slug generator library for golang.
 package slugify
 
 import (

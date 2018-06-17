@@ -3,6 +3,7 @@ package slugify
 import (
 	"testing"
 	"reflect"
+	"fmt"
 )
 
 func TestSlugify(t *testing.T) {
@@ -58,4 +59,22 @@ func TestGetWithCustomReplacer(t *testing.T) {
 	if instanceType := reflect.TypeOf(slugifyInstance).String(); instanceType != "*slugify.API" {
 		t.Errorf("Returned instance type is not slugify.API but %s", instanceType)
 	}
+}
+
+func ExampleSlugify() {
+	slugified, _ := Slugify("Şok! Silivri ve Sason ilçe jandarma komutanları 'FETÖ'den tutuklandı")
+	fmt.Println(slugified)
+	// Output: sok-silivri-ve-sason-ilce-jandarma-komutanlari-fetoden-tutuklandi
+}
+
+func ExampleGetWithCustomReplacer() {
+	slugified, _ := GetWithCustomReplacer([]string{
+		" ", "-",
+		"'", "",
+		"ı", "i",
+		",", "",
+		".", "",
+	}).Slugify("5 simple tips and tricks for writing unit tests in #golang")
+	fmt.Println(slugified)
+	// Output: 5-simple-tips-and-tricks-for-writing-unit-tests-in-#golang
 }
