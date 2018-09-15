@@ -2,6 +2,7 @@
 
 
 [[projects]]
+  digest = "1:12398479544afc106c52628ec45900189ab8cbffd4f90afde4c28679d71fc3b9"
   name = "golang.org/x/text"
   packages = [
     "internal/gen",
@@ -10,14 +11,19 @@
     "runes",
     "transform",
     "unicode/cldr",
-    "unicode/norm"
+    "unicode/norm",
   ]
+  pruneopts = "UT"
   revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
   version = "v0.3.0"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6065c341fa6ea779263b538b59026fe78b9a9ba89bb4a0b52d5d3463a7c64ab6"
+  input-imports = [
+    "golang.org/x/text/runes",
+    "golang.org/x/text/transform",
+    "golang.org/x/text/unicode/norm",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
